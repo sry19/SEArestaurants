@@ -65,7 +65,7 @@ export default function RestaurantCard(props) {
         component="img"
         height="194"
         image={String(restImg)}
-        alt="Niku niku"
+        alt={restName}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
