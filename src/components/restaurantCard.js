@@ -26,6 +26,12 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+function randomColor() {
+    let hex = Math.floor(Math.random() * 0xFFFFFF);
+    let color = "#" + hex.toString(16);
+    return color;
+  }
+
 export default function RestaurantCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -33,14 +39,17 @@ export default function RestaurantCard(props) {
     setExpanded(!expanded);
   };
 
-  let restImg = props.img;
+  const restName = props.name;
+  const restImg = props.imag;
+  const avatarLetter = restName.slice(0,1).toUpperCase()
+  
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
+    <Card sx={{ maxWidth: 345, marginBottom:'25px', marginTop: '25px'}}>
+      <CardHeader sx={{ maxWidth: 345, height: 100, fontSize: 20, }} className='card-header-height'
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+          <Avatar sx={{ bgcolor: randomColor() }} aria-label="recipe">
+            {avatarLetter}
           </Avatar>
         }
         action={
@@ -48,13 +57,14 @@ export default function RestaurantCard(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={props.name}
-        subheader="September 14, 2016"
+        title={restName}
+        titleTypographyProps={{variant:'body1'}}
+        subheader={props.startDate}
       />
       <CardMedia
         component="img"
         height="194"
-        image={require('../static/images/cards/niku.jpg')}
+        image={String(restImg)}
         alt="Niku niku"
       />
       <CardContent>
