@@ -56,9 +56,7 @@ function RestaurantCard(props) {
   }
 
   return (
-    <Card sx={{ maxWidth: 345, marginBottom:'25px', marginTop: '25px'}}>
-   <ButtonBase onClick={routeChange} style={{height:'100%', width:'100%'}}> 
-        
+    <Card sx={{ maxWidth: 345, marginBottom:'25px', marginTop: '25px'}}>       
       <CardHeader sx={{ maxWidth: 345, height: 100, fontSize: 20, }} className='card-header-height'
         avatar={
           <Avatar sx={{ bgcolor: randomColor() }} aria-label="recipe">
@@ -74,15 +72,15 @@ function RestaurantCard(props) {
         titleTypographyProps={{variant:'body1'}}
         subheader={props.startDate}
       />
-     </ButtonBase>
+
      <ButtonBase onClick={routeChange} style={{height:'100%', width:'100%'}}> 
-      <CardMedia
-        component="img"
-        height="194"
-        image={String(restImg)}
-        alt={restName}
-      />
- </ButtonBase>
+        <CardMedia
+            component="img"
+            height="194"
+            image={String(restImg)}
+            alt={restName}
+        />
+    </ButtonBase>
     
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -91,7 +89,7 @@ function RestaurantCard(props) {
           if you like.
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>

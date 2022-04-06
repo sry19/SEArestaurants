@@ -160,15 +160,17 @@ export default function PrimarySearchAppBar(props) {
         
       <AppBar style={{ background: '#bb7e99', position: 'fixed'}}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+            <Box paddingRight='10px'>
+                <IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                    sx={{ mr: 2 }}
+                >
+                    <MenuIcon />
+                </IconButton>
+            </Box>
           <Typography
             variant="h6"
             noWrap
@@ -188,20 +190,23 @@ export default function PrimarySearchAppBar(props) {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <Box sx={{padding:'10px'}}>
+                <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+                >
+                <Badge badgeContent={17} color="error">
+                    <NotificationsIcon />
+                </Badge>
+                </IconButton>
+            </Box>
             <IconButton
               size="large"
               edge="end"
