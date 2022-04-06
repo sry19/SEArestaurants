@@ -1,0 +1,8 @@
+.intro-text {
+    text-overflow: ellipsis;
+    overflow: scroll;
+    /* white-space: nowrap; */ 
+    /* height: 3.2em;
+    width: 2em; */
+    height: 50px;
+}

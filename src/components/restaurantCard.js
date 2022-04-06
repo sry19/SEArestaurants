@@ -12,13 +12,16 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { useNavigate } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import {  Row, Col, Container } from "react-bootstrap";
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import './restaurantCard.css'
 
 
 const ExpandMore = styled((props) => {
@@ -40,13 +43,35 @@ function randomColor() {
 
 function RestaurantCard(props) {
   const [expanded, setExpanded] = React.useState(false);
+  const [userLiked, setUserLiked] = React.useState(false);
+  const [likes, setLikes] = React.useState(props.likes);
+  const [userCollected, setUserCollected] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const incrementLikes = () => {
+      if (!userLiked) {
+          setLikes((preState) => {return (preState + 1)});
+          setUserLiked(true);
+      } else {
+          setLikes((preState) => {return (preState - 1)});
+          setUserLiked(false);
+      }
+  }
+
+  const incrementCollections = () => {
+      if (!userCollected) {
+          setUserCollected(true);
+      } else {
+          setUserCollected(false);
+      }
+  }
+
   const restName = props.name;
   const restImg = props.imag;
+  const restIntro = props.intro;
   const avatarLetter = restName.slice(0,1).toUpperCase()
   
   let navigate = useNavigate(); 
@@ -80,18 +105,27 @@ function RestaurantCard(props) {
             image={String(restImg)}
             alt={restName}
         />
-    </ButtonBase>
+     </ButtonBase>
     
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          <p className='intro-text'>{restIntro}</p>
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="likes" onClick={incrementLikes}>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                fontSize: '15px'
+            }}>
+          {userLiked? <FavoriteIcon /> : <FavoriteBorderIcon/>}
+          <span>{likes}</span>
+          </div>
+        </IconButton>
+        <IconButton aria-label="add to collections" onClick={incrementCollections}>
+          {userCollected? <BookmarkIcon /> : <BookmarkBorderIcon />}
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
