@@ -42,7 +42,7 @@ export default function RestaurantList(props) {
                     {
                         restLst.map((r) => 
                             <Col xs={12} md={4} lg={4}>
-                                <RestaurantCard name={r.name} imag={r.img} startDate={r.startDate} likes={r.likes} intro={r.intro}/>
+                                <RestaurantCard restInfo={r}/>
                             </Col>
                         )
                     }      
