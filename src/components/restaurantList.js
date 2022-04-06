@@ -29,7 +29,7 @@ export default function RestaurantList(props) {
 
     return (
         <div>
-            <Container >
+            <Container style={{marginTop:'50px'}}>
                 <Row>
                     {
                         restLst.map((r) => 
@@ -37,8 +37,7 @@ export default function RestaurantList(props) {
                                 <RestaurantCard name={r.name} imag={r.img} startDate={r.startDate} />
                             </Col>
                         )
-                    }
-                    
+                    }      
                 </Row>
             </Container>
         </div>

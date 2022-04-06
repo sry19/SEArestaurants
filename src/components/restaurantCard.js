@@ -14,6 +14,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import { useNavigate } from "react-router-dom";
+import { withStyles } from '@material-ui/core/styles';
+import {  Row, Col, Container } from "react-bootstrap";
+
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -32,7 +38,7 @@ function randomColor() {
     return color;
   }
 
-export default function RestaurantCard(props) {
+function RestaurantCard(props) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -43,9 +49,16 @@ export default function RestaurantCard(props) {
   const restImg = props.imag;
   const avatarLetter = restName.slice(0,1).toUpperCase()
   
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/tos`; 
+    navigate(path);
+  }
 
   return (
     <Card sx={{ maxWidth: 345, marginBottom:'25px', marginTop: '25px'}}>
+   <ButtonBase onClick={routeChange} style={{height:'100%', width:'100%'}}> 
+        
       <CardHeader sx={{ maxWidth: 345, height: 100, fontSize: 20, }} className='card-header-height'
         avatar={
           <Avatar sx={{ bgcolor: randomColor() }} aria-label="recipe">
@@ -61,12 +74,16 @@ export default function RestaurantCard(props) {
         titleTypographyProps={{variant:'body1'}}
         subheader={props.startDate}
       />
+     </ButtonBase>
+     <ButtonBase onClick={routeChange} style={{height:'100%', width:'100%'}}> 
       <CardMedia
         component="img"
         height="194"
         image={String(restImg)}
         alt={restName}
       />
+ </ButtonBase>
+    
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
@@ -119,6 +136,9 @@ export default function RestaurantCard(props) {
           </Typography>
         </CardContent>
       </Collapse>
+     
     </Card>
   );
 }
+
+export default (RestaurantCard)
