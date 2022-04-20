@@ -1,0 +1,7 @@
+#order label{
+    text-align: center;
+    display:flexbox;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    padding: 5px;
+}

@@ -37,6 +37,9 @@ export default function RestaurantList(props) {
 
     return (
         <div>
+            <Card>
+                <input value={'sdf'}/>
+            </Card>
             <Container style={{marginTop:'50px'}}>
                 <Row>
                     {

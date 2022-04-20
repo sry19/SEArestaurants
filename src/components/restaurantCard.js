@@ -85,6 +85,7 @@ function RestaurantCard(props) {
   }
 
   return (
+      <>
     <Card sx={{ maxWidth: 345, marginBottom:'25px', marginTop: '25px'}}>       
       <CardHeader sx={{ maxWidth: 345, height: 100, fontSize: 20, }} className='card-header-height'
         avatar={
@@ -165,6 +166,7 @@ function RestaurantCard(props) {
       </Collapse>
      
     </Card>
+    </>
   );
 }
 
