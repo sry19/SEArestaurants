@@ -80,7 +80,7 @@ function RestaurantCard(props) {
   
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    let path = `/tos`; 
+    let path = `/order`; 
     navigate(path);
   }
 
