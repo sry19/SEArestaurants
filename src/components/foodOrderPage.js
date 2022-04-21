@@ -33,7 +33,7 @@ export default function FoodOrderPage(props) {
                     <Col xs={12} md={12} lg={4}>
                         <div style={{padding:'50px', marginTop: '50px'}} >
                             <Card style={{ padding:'20px',marginTop:'10%'}}>
-                                <label>Cart:</label>
+                                <h2>Cart:</h2>
                             </Card>
                         </div>   
                     </Col>
