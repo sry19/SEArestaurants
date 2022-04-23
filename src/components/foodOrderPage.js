@@ -15,14 +15,17 @@ export default function FoodOrderPage(props) {
 
     const foodList = [
         {
+            foodKey: '1',
             foodName: 'Wagyu Meatballs',
             foodImg: 'https://s3-media0.fl.yelpcdn.com/bphoto/mqsIE7Mmw2W1u1-0NqQRfA/o.jpg'
         },
         {
+            foodKey: '2',
             foodName: 'Crispy Pig Ears',
             foodImg: 'https://s3-media0.fl.yelpcdn.com/bphoto/DnImBDhYOl69aHZxLtqZBw/o.jpg'
         },
         {
+            foodKey: '3',
             foodName: 'Kumamoto Oysters',
             foodImg: 'https://s3-media0.fl.yelpcdn.com/bphoto/mvnnOuQDUiPo8I_5qM95Tg/o.jpg'
         }
@@ -41,8 +44,8 @@ export default function FoodOrderPage(props) {
                 <Row>
                     <FoodItem foodList={foodList} restaurantName={restaurantName} />
                     <Col xs={12} md={12} lg={4}>
-                        <div style={{padding:'50px', marginTop: '50px'}} >
-                            <Card style={{ paddingTop:'20px',marginTop:'10%'}}>
+                        <div style={{paddingTop:'40px', marginTop: '80px', paddingLeft:'10px'}} >
+                            <Card style={{ padding:'20px',marginTop:'10px'}}>
                                 <Cart restaurantName={restaurantName}/>
                             </Card>
                         </div>   

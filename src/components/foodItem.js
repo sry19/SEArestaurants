@@ -11,8 +11,8 @@ export default function FoodItem(props) {
 
     return (
         <Col xs={12} md={12} lg={8}>
-            <div style={{padding:'50px'}} id='order'>
-                <Card style={{ padding:'15px',paddingLeft:'20px',marginTop:'10%'}}>
+            <div style={{paddingTop:'30px',marginTop: '50px',paddingLeft:'0px',paddingRight:'0px'}} id='order'>
+                <Card style={{ padding:'15px',paddingLeft:'40px',marginTop:'10px'}}>
                 <h2>Full Menu</h2>
                 {foodList.map(f => 
                     <Food food={f} restaurantName={restaurantName}/>
